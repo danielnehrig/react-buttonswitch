@@ -2,25 +2,56 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const objData = [
+  {
+    buttonName: 'button1',
+  },
+  {
+    buttonName: 'button2',
+  },
+  {
+    buttonName: 'button3',
+  },
+];
+
+class App extends React.Component {
+  state = {
+    activeName: 'button1',
+  };
+
+  handleClick = buttonName => {
+    const newData = {
+      activeName: buttonName
+    }
+
+    this.setState(newData);
+  };
+
+  render() {
+    return (
+      <div className="flex">
+        {objData.map(({buttonName}) => (
+          <ButtonTab
+            isActive={buttonName === this.state.activeName}
+            buttonName={buttonName}
+            handleClick={this.handleClick}
+            abasdasdsaatiaoihagiadhg="asdasdasd"
+          />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
+
+const ButtonTab = ({buttonName, isActive, handleClick }) => {
+  return (
+    <div
+      className={`l-flex u-padding border-onesided ${isActive &&
+        'activeState'}`}
+      onClick={() => handleClick(buttonName)}>
+      <p className="u-no-margin--bottom">{buttonName}</p>
+    </div>
+  );
+};

@@ -20,3 +20,41 @@
 .App-link {
   color: #09d3ac;
 }
+
+.border-onesided {
+  border: black;
+  background-color: black;
+  cursor: pointer;
+  color: white;
+}
+
+.border-onesided:hover {
+  background-color: black;
+  color: white;
+}
+
+.border-onesided:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.border-onesided:last-child {
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+}
+
+.activeState {
+  background-color: map-get(map-get($color-palette, 'background'), 'base');
+  color: map-get(map-get($color-palette, 'text'), 'base');
+  font-weight: bold;
+  cursor: text;
+}
+
+.activeState:hover {
+  background-color: map-get(map-get($color-palette, 'background'), 'base');
+  color: map-get(map-get($color-palette, 'text'), 'base');
+  border: 1px solid transparent;
+}
+
+.flex {
+  display: flex;
+}
